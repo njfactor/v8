@@ -18,12 +18,23 @@
 	<script src="js\funcs_pageone.js"></script>
 	<script src="js\funcs_pagetwo.js"></script>
 	<script src="js\spin.js"></script>
+	<script>
+		$('#scan').on('touchstart',function(){
+    $(this).addClass('ui-btn-down-b');
+});
+	$('#scan').on('touchend',function(){
+    $(this).addClass('ui-btn-up-b');
+});
 	
+	</script>
 	
 </head>
 
-<body onLoad="firstFunction()">
-
+<body onLoad="firstFunction()" >
+<style>body
+{
+	font-size: 150%;
+}</style>
 
 <!-- PAGE ONE -->
 <div data-role="page" id="pageone">
@@ -31,11 +42,10 @@
 	
 	<div data-role="navbar" class = "app"> 
 		<ul>
-			<li><a href="#" data-icon="plus" class="topcoat-button" id="scan">Add</a></li>
-			<li><a href="#" data-icon="arrow-r" id = "payButton">Pay</a></li>
+			<li><a href="#"   data-icon="plus"  class="topcoat-button" id="scan">Add</a></li>
+			<li><a href="#pagetwo" data-icon="arrow-r" id = "payButton" >Pay</a></li>
 		</ul>
 	</div>
-	<br>
 	<div class="ui-grid-a">
 		<div class="ui-block-a" id="">
 		<h3>TOTAL: Rs.<cartTotal id = "total_price"></cartTotal></h3>
@@ -46,17 +56,18 @@
 		<span />
 		</div>
 	</div>
-	</div>
-
-   <div data-role="main" class="ui-content">
-		<div class="ui-grid-b">
-				  <div class="ui-block-a"><a id="btnExpand" class="ui-btn ui-corner-all collapseExpand">Expand All</a>
+	
+	<div class="ui-grid-b">
+				  <div class="ui-block-a"><a id="btnExpand"  class="ui-btn ui-corner-all collapseExpand">Expand All</a>
 				  </div>
 				  <div class="ui-block-b"><a id="btnCollapse" class="ui-btn ui-corner-all collapseExpand">Collapse All</a>
 				  </div>
 				  <div class="ui-block-c"><a id="btnDelete" class="ui-btn ui-corner-all collapseExpand" onClick="deleteAll()">Delete All</a>
 				  </div>
 		</div>
+</div>
+   <div data-role="main" class="ui-content">
+		
 		
 		<div id="wrapper" data-role="content" ></div>
 	
@@ -76,8 +87,8 @@
 	<script type="text/javascript">app.initialize();</script>
 
 <script>
-var details=["VC","2222","99","p2","http://172.17.10.17/VC_Server/Default.aspx"];
-//var details=[];
+//var details=["VC","2222","99","p2","http://172.17.10.17/VC_Server/Default.aspx"];
+var details=[];
 var cart=[];
 var temprod;
 var total_price=0.00;

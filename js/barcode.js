@@ -60,7 +60,7 @@ var app = {
 		{ 
 			if(checkValidQR(result.text))
 			{
-            alert("Name: " + details[3] + "<br/>Price: " + details[2]);  
+            alert("Name: " + details[3] + "\nPrice: " + details[2]);  
             //prompt("Name: " + details[1] + "<br/>Price: " + details[2]);  
 			begin();
 			//getDetails();

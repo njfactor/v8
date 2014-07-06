@@ -4,20 +4,20 @@ $(document).on("pageshow","#pagetwo",function(event,data)
 	$("#billDetails").text('');
 	$('<div class="ui-block-a"><h3>PRODUCT NAME</h3></div><div class="ui-block-b"><h3>QUANTITY</h3></div><div class="ui-block-c"><h3>PRICE</h3></div><div class="ui-block-d"><h3>SUB-TOTAL</h3></div></div>').appendTo("#billDetails");
 	
-	$("#grandTotalPagetwo").text(total_price);
+	$("#grandTotalPagetwo").text(total_price.toFixed(2));
 	
 	for(i = 0;i<cart_top;i++)
 	{
 		addBillToDisplay(i);
 		total_Discount+=(cart[i].mrp - cart[i].mallPrice)*cart[i].qty;
 	}
-	$("#totalDiscountPagetwo").text(total_Discount);
+	$("#totalDiscountPagetwo").text(total_Discount.toFixed(2));
 });
 
 
 function addBillToDisplay(index)
 {
-	var $bill=$('<div class="ui-block-a">' + cart[index].pdName + '</div><div class="ui-block-b">' + cart[index].qty + '</div><div class="ui-block-c">' + cart[index].mallPrice + '</div><div class="ui-block-d">' + cart[index].subTotal + '</div>  ').appendTo(document.getElementById('billDetails'));
+	var $bill=$('<div class="ui-block-a">' + cart[index].pdName + '</div><div class="ui-block-b">' + cart[index].qty + '</div><div class="ui-block-c">' + cart[index].mallPrice.toFixed(2) + '</div><div class="ui-block-d">' + cart[index].subTotal.toFixed(2) + '</div>  ').appendTo(document.getElementById('billDetails'));
 }
 
 
@@ -37,7 +37,7 @@ function sendToBiller()
 			data:dat,
 			success: function (data) 
 			{
-				alert('Thank you for shopping with Virtual Cart. Your bill has been generated. You can collect it from any billing counter.');
+				alert('Thank you for shopping with Virtual Cart. '+data);
 			},
 			error: function ()
 			{

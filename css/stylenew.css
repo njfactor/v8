@@ -24,18 +24,16 @@
 
 body
 {
-	font-size: 100%;
+	font-size: 150%;
 }
 #head > div.ui-grid-a > div.ui-block-a > h3
 {
-	font-size: 150%;
-	margin-left: 38%;
+	margin-left: 20%;
 }
 
 #head > div.ui-grid-a > div.ui-block-b > h3
 {
-	font-size: 150%;
-	margin-left: 38%;
+	margin-left: 35%;
 }
 
 #scan
@@ -46,5 +44,116 @@ body
 #payButton
 {
 		font-size: 150%;
-		font-size: 150%;
+}
+
+.ui-btn-down-mytheme{background-color:red;
+}
+
+#btnExpand,#btnCollapse,#btnDelete
+{
+	width: 87%;
+	background-color: #1A1A1A;
+	font-size: 100%
+}
+#pageone > div.ui-content
+{
+	font-size:100%;
+}
+
+#pageone > div.ui-content
+{
+	padding:0px;
+}
+
+#wrapper
+{
+	padding: 0.5%;
+}
+
+.ui-collapsible-heading-toggle
+{
+	font-size: 100%;
+}
+
+.myInput
+{
+/* 	border-top: 1px solid #909090;
+	border-bottom: 1px solid #909090; */
+	padding: 0px;
+	margin-top:1%;
+	font-size: 100%;
+}
+.myInput>.myInputButtonMinus,.myInput>.myInputButtonPlus
+{
+	margin: 0px;
+	font-size: 150%;
+	color: #717171;
+	width: 10%;
+	height: 10%;
+}
+
+.myInput>.myInputBox
+{
+	border: 0px;
+	margin: 0px;
+	font-size: 100%;
+	width: 30%;	
+	padding: 10px;
+}
+
+#head
+{
+	position: fixed;
+	background-color: #262626;
+}
+
+#head > div.ui-grid-b
+{
+	background-color: #292929;
+}
+
+#viewbill > div
+{
+	font-size: 100%;
+}
+
+#pagetwo
+{
+		font-size: 100%;
+}
+
+#finalSend
+{
+	font-size: 100%;
+}
+
+#pagetwo > div.ui-footer.ui-bar-b.ui-footer-fixed.slideup > div > ul > li.ui-block-b > a
+{
+	font-size: 100%;
+}
+
+#pagetwo > div.ui-footer.ui-bar-b.ui-footer-fixed.slideup > div > ul > li.ui-block-c > a
+{
+	font-size: 100%;
+}
+
+#viewbill
+{
+	padding: 0.5%;
+}
+
+
+#pagetwo > div.ui-header.ui-bar-b.ui-header-fixed.slidedown > h2
+{
+	font-size: 200%;
+	margin: 0px;
+	vertical-align: middle;
+}
+
+#pagetwo > div.ui-header.ui-bar-b.ui-header-fixed.slidedown > h1
+{
+	font-size: 350%;
+	width: 100%;
+	margin: 0px;
+	vertical-align: middle;
 }

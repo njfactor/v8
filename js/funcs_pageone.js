@@ -1,11 +1,7 @@
-var actualValue;//to be removed
-
 function begin()
 {
-
-    temprod=new product(details[3],details[1],parseFloat(details[2]),1,parseFloat(details[2]),parseFloat(details[2]));
 	server_url = details[4];
-	var x=checkIfPresent(temprod.pdId);
+	var x=checkIfPresent(details[1]);
 	if(x>=0)//present
 	{
       alert('This item is already present in your cart.');
@@ -14,21 +10,26 @@ function begin()
 	else//not present
 	{
 		//take quantity input
-		add_object(temprod);
-		getDetails(temprod);
+		var tempqt=takeQuantity();
+		if(tempqt!=-1){
+			temprod=new product(details[3],details[1],parseFloat(details[2]), parseInt(tempqt),parseFloat(details[2]));
+			add_object(temprod);
+			getDetails(temprod);
+			}
 	}
 }
 //end
 
 function updateAllConstantsDisplay()
 {
-	$("#total_price").text(total_price);
+	$("#total_price").text(total_price.toFixed(2));
 	$("#total_items").text(cart_top);
 }
 
 function changeQtyRescan(pos)
 {
-	cart[pos].qty+=1; 
+	//cart[pos].qty = parseInt(cart[pos].qty); 
+	cart[pos].qty++; 
 	cart[pos].subTotal=calc_subtotal(cart[pos].mallPrice,cart[pos].qty);
 	total_price+=cart[pos].mallPrice;
 	
@@ -38,9 +39,9 @@ function changeQtyRescan(pos)
 }
 
 function changeQtyRescanDisplay(pos){
-
-		$("#qt__" + cart[pos].pdId).attr("value",cart[pos].qty);
-		$("#sTotal" + cart[pos].pdId).text(cart[pos].subTotal);
+		alert(cart[pos].qty);
+		$("#qt__" + cart[pos].pdId).val(cart[pos].qty+"");
+		$("#sTotal" + cart[pos].pdId).text(cart[pos].subTotal.toFixed(2));
 }
 
 
@@ -56,34 +57,30 @@ function getDetails(tempprod)
 	var jqxhr= $.get( finurl, function( data ) {
 
 //	alert('Server has sent the data');	
-	var i;
-	for(i=0;i<cart_top;i++)
-	{
-	if((cart[i].pdId.localeCompare(data.pdId))==0)
-	break;
-	}
-	
+	var i=checkIfPresent(tempprod.pdId);
+	if(i>=0){
 	{
 		total_price-=cart[i].subTotal;
-		data.qty=tempprod.qty;
+		data.qty=cart[i].qty;
 		data.subTotal=calc_subtotal(data.qty,data.mallPrice);
 		cart[i] = data;
+		total_price+=cart[i].subTotal;
 		alert('The mall is providing ' + data.offer + ' on ' + data.pdName + '.');	
 	}
 	{
 		$("#img" + cart[i].pdId).attr("src",cart[i].imgURL);
 		$("#qt__" + cart[i].pdId).attr("value",cart[i].qty);
-		$("#sTotal" + cart[i].pdId).text(cart[i].subTotal);
-		$("#mPrice" + cart[i].pdId).text(cart[i].mallPrice);
+		$("#sTotal" + cart[i].pdId).text(cart[i].subTotal.toFixed(2));
+		$("#mPrice" + cart[i].pdId).text(cart[i].mallPrice.toFixed(2));
+	}	
+		updateAllConstantsDisplay();
+		
 	}
-	total_price+=cart[i].subTotal;
-	
-	updateAllConstantsDisplay();
 	},"json");
 	
 	jqxhr.fail(function()
 		{
-			alert('Sorry! '+' '+' '+' The additional information of this product could not be retrieved.');
+			alert('Sorry!\nThe additional information on '+ tempprod.name + 'could not be retrieved.');
 		});
 	//var pdImg=document.getElementById('img' + cart[i].pdId + '');
 }
@@ -98,13 +95,13 @@ return  url+"?method=getProductDetails&pID="+pid;
 
 
 //Constructor for product class
-function product(pdName,pdId,mallPrice,qty,subTotal,mrp,discount,offer,pdDescription,imgURL)
+function product(pdName,pdId,mallPrice,qty,mrp,discount,offer,pdDescription,imgURL)
 {
 	this.pdName = pdName;
 	this.pdId = pdId;
 	this.mallPrice = mallPrice;
 	this.qty=qty;
-    this.subTotal=subTotal;
+    this.subTotal=mallPrice*qty;
 	this.mrp = mrp;
 	this.discount = discount;
 	this.offer = offer;
@@ -182,7 +179,7 @@ function add_object(tempprod)
 
 function addToDisplay(tempprod)
 {
-	var $ele=$('<div data-role="collapsible" data-collapsed="false" id="'+tempprod.pdId+'"><h1>'+tempprod.pdName+'<a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-notext" onclick="remove_object(this.id)" id = "'+tempprod.pdId+'" style="float: right;"></a></h1><div class="ui-grid-b"><div class="ui-block-a"><span><img src="warning.png" height = "70px"/ id="img' + tempprod.pdId + '"></span></div><div class="ui-block-b"><span> <strong>Name:'+tempprod.pdName+'<br>Id:'+tempprod.pdId+' </strong><br><strong>Price: <span  id="mPrice' + tempprod.pdId + '">'+tempprod.mallPrice+'</span> </strong></span></div><div class="ui-block-c"><div class="uiv2-grid-count-btn"><button class="icon icon-decrease-qty-search-popup" id="minus__'+tempprod.pdId+'" onclick="minus_click(this.id)">-</button><input type="number" class="text-change-qty-search-popup" id="qt__'+tempprod.pdId+'" onkeyup="key_up(this.id)" onfocusout="focus_out(this.id)"  value="1" maxlength=""><button class="icon icon-increase-qty-search-popup" id="plus__'+tempprod.pdId+'" onclick="plus_click(this.id)" >+</button></div><div class = "ui-block-c"> <strong>Subtotal: <span id="sTotal' + tempprod.pdId + '">'+tempprod.subTotal+'</span></strong></div></div></div>').appendTo(document.getElementById('wrapper'));
+	var $ele=$('<div data-role="collapsible" data-collapsed="false" id="'+tempprod.pdId+'"><h1>'+tempprod.pdName+'<a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-notext" onclick="remove_object(this.id)" id = "'+tempprod.pdId+'" style="float: right;"></a></h1><div class="ui-grid-b"><div class="ui-block-a"><span><img src="warning.png" height = "70px"/ id="img' + tempprod.pdId + '"></span></div><div class="ui-block-b"><span> <strong>Name:'+tempprod.pdName+'<br>Id:'+tempprod.pdId+' </strong><br><strong>Price: <span  id="mPrice' + tempprod.pdId + '">'+tempprod.mallPrice.toFixed(2)+'</span> </strong></span></div><div class="ui-block-c"><div class="ui-block-c"><div class="myInput" id = "myInput"><button class="myInputButtonMinus" id="minus__'+tempprod.pdId+'" onclick="minus_click(this.id)" data-icon="minus">-</button><input type="number" class="myInputBox" id="qt__'+tempprod.pdId+'" onkeyup="key_up(this.id)" onfocusout="focus_out(this.id)"  value="'+tempprod.qty+'" maxlength=""><button class="myInputButtonPlus" id="plus__'+tempprod.pdId+'" onclick="plus_click(this.id)" >+</button></div><div class = "ui-block-c"> <strong>Subtotal: <span id="sTotal' + tempprod.pdId + '">'+tempprod.subTotal.toFixed(2)+'</span></strong></div></div></div>').appendTo(document.getElementById('wrapper'));
 	$ele.collapsible();
 }
 
@@ -200,21 +197,21 @@ function changeQuantity(qtId,qtValue)
     cart[i].subTotal=temp_subTotal;//update the subtotal;
 	total_price+=temp_subTotal;//update the total price
 	
-	$("#sTotal" + cart[i].pdId).text(cart[i].subTotal);
+	$("#sTotal" + cart[i].pdId).text(cart[i].subTotal.toFixed(2));
 	
 	updateAllConstantsDisplay();
 }
 
-function disableEnablePayLink()
+ function disableEnablePayLink()
 {
-	if(cart_top != 0)
-	{
-		$("#payButton").attr("href",'#pagetwo');
-	}
-	else
-	{
-		$("#payButton").attr("href",'#');
-	}
+       if(cart_top != 0)
+       {
+               $("#payButton").removeClass('ui-disabled');   
+       }
+       else
+       {
+               $("#payButton").addClass('ui-disabled');                
+       }
 }
 
 function deleteAll()
@@ -258,4 +255,25 @@ function checkValidQR(tex){
 	if(parseFloat(details[2])=="NaN")
 		return false;
 	return true;
+}
+
+//returns the quantity input by user, returns -1 in case user doesn't wants to add item
+function takeQuantity()
+{
+	var qty = prompt('Enter the number of prducts you wish to buy: \n',"1");
+	if(qty==null)
+	return -1;
+	qty=parseFloat(qty);
+	while(isNaN(qty)||(qty%1!=0)||qty<0)
+		{
+		alert("Please enter valid quantity");
+		var qty = prompt('Enter the number of prducts you wish to buy: \n',"1");
+		if(qty==null)
+			return -1;
+		qty=parseFloat(qty);
+		}
+	if(qty==0)
+		return -1;
+	return qty;
+	
 }

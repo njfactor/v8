@@ -7,7 +7,7 @@ prev=parseInt(prev);
 if(prev>=2)
 {
 $("#qt__"+actualId).val(prev-1);
-changeQuantity("qt__"+actualId,prev-1);
+changeQuantity("qt__"+actualId,(prev-1)+"");
 }
 
 }
@@ -22,8 +22,8 @@ var prev=$("#qt__"+actualId).val();
 prev=parseInt(prev);
 //alert(prev);
 
-$("#qt__"+actualId).val(prev+1);
-changeQuantity("qt__"+actualId,prev+1);
+$("#qt__"+actualId).val((prev+1)+"");
+changeQuantity("qt__"+actualId,(prev+1)+"");
 }
 
 function focus_out(id){
@@ -47,27 +47,27 @@ changeQuantity("#qt__"+actualId,"1");
 
 function key_up(id)
 {
-alert('in key_up');
+//alert('in key_up');
 var actualId= id.split("__").pop();
-alert(actualId);
+//alert(actualId);
 
 var valu=$("#qt__"+actualId).val();
-alert(valu);
+//alert(valu);
 
 var character=valu[valu.length-1];
-alert(character);
+//alert(character);
 
 if(valu=="")
 {
-alert('in if');
+//alert('in if');
 return;
 }
 else if(isNaN(parseInt(character))) {
-	alert('in else if');
+	//alert('in else if');
 	var i=checkIfPresent(actualId);
 	$("#qt__"+actualId).val(cart[i].qty);}
 else{
-alert('in else');
+//alert('in else');
 	changeQuantity(id,valu);
 }
 	
