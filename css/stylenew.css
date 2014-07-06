@@ -1,0 +1,50 @@
+
+	footerText{
+	font-size: 20px;
+	
+	}
+	#foot{
+	display:none;
+	
+	}
+	
+	.coll_head_butt{
+    margin-left : 50px ;
+    /*padding:1em !important;*/
+    border-style:none ;
+    box-shadow:none ;
+	float: right;
+}
+
+.deleteButton
+{
+	margin-right:0px;
+	float: right;
+}
+
+body
+{
+	font-size: 100%;
+}
+#head > div.ui-grid-a > div.ui-block-a > h3
+{
+	font-size: 150%;
+	margin-left: 38%;
+}
+
+#head > div.ui-grid-a > div.ui-block-b > h3
+{
+	font-size: 150%;
+	margin-left: 38%;
+}
+
+#scan
+{
+		font-size: 150%;
+}
+
+#payButton
+{
+		font-size: 150%;
+		font-size: 150%;
+}
