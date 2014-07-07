@@ -61,8 +61,7 @@ var app = {
 			if(checkValidQR(result.text))
 			{
 			
-            alert("Name: " + obj.pName);  
-            //prompt("Name: " + details[1] + "<br/>Price: " + details[2]);  
+            //alert("Name: " + obj.Name);  
 			begin();
             console.log("Scanner result: \n" +
                 "text: " + result.text + "\n");
