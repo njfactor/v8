@@ -35,8 +35,20 @@
 
 #pageone
 {
-	font-size: 40%;
+	font-size: 70%;
 }
+
+#scan
+{
+	font-size: 100%;	
+}
+
+#payButton
+{
+	font-size: 100%;	
+}
+
+
 #head > div.ui-grid-a
 {
 	text-align: center;
@@ -64,10 +76,10 @@
 	padding: 2%;
 }
 
-#wrapper > .ui-collapsible>h1
-{font-size:80%;
-	background-color: #ffffff; 
-}
+
+
+
+
 #pagetwoHeader
 {
 font-size:80%;
@@ -84,15 +96,41 @@ margin:0;
 text-align:center;}
 #totalDiscount
 {
-
 margin:0;
-text-align:center;}
+text-align:center;
+}
+
 #billDetails>h3
 {
-font-size:60%;}
+font-size:60%;
+}
 
 #billDetails > div:nth-child(4) > h3,#billDetails > div:nth-child(3) > h3,#billDetails > div:nth-child(2) > h3,#billDetails > div:nth-child(1) > h3
 {
-font-size:60%;}
-#bd{
-font-size:60%;}
+font-size:80%;
+}
+
+
+#bd
+{
+font-size:80%;
+}
+
+#finalSend
+{
+
+	font-size: 80%;
+}
+
+
+#viewbill > div.ui-footer.ui-bar-b.ui-footer-fixed.slideup > div > ul > li.ui-block-b > a
+{
+	font-size: 80%;
+}
+
+
+#viewbill > div.ui-footer.ui-bar-b.ui-footer-fixed.slideup > div > ul > li.ui-block-c > a
+{
+	font-size: 80%;
+
+}

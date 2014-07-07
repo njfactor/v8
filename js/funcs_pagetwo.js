@@ -17,7 +17,7 @@ $(document).on("pageshow","#pagetwo",function(event,data)
 
 function addBillToDisplay(index)
 {
-	var $bill=$('<div class="ui-block-a" id="bd">' + cart[index].pdName + '</div><div class="ui-block-b" id="bd">' + cart[index].qty + '</div><div class="ui-block-c" id="bd">' + cart[index].mallPrice.toFixed(2) + '</div><div class="ui-block-d" id="bd">' + cart[index].subTotal.toFixed(2) + '</div>  ').appendTo(document.getElementById('billDetails'));
+	var $bill=$('<div class="ui-block-a" id="bd">' + cart[index].pdName + '</div><div class="ui-block-b" id="bd">' + cart[index].qty + '</div><div class="ui-block-c" id="bd">' + cart[index].mallPrice.toFixed(2) + '</div><div class="ui-block-d" id="bd">' + cart[index].subTotal.toFixed(2) + '</div>').appendTo(document.getElementById('billDetails'));
 }
 
 
