@@ -54,7 +54,10 @@
 	font-size: 110%;	
 }
 
-
+#head,#pagetwoHeader
+{
+	height:30%;
+}
 #head > div.ui-grid-a
 {
 	text-align: center;
@@ -63,6 +66,13 @@
 #head > div.ui-grid-b
 {
 	background-color: #222222;
+}
+
+#head > div.ui-grid-a > div.ui-block-a > h3,#head > div.ui-grid-a > div.ui-block-b > h3
+{
+
+	margin-top: 2%;
+	margin-bottom: 2%;
 }
 
 #btnExpand,#btnCollapse,#btnDelete

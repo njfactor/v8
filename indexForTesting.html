@@ -36,12 +36,7 @@
 <div data-role="page" id="pageone">
   <div data-role="header" data-position="fixed" data-tap-toggle="false"  id="head" data-theme="b">
 	
-	<div data-role="navbar" class = "app"> 
-		<ul>
-			<li><a href="#"   data-icon="plus"  class="topcoat-button" id="scan" onclick = "begin()">Scan QR-Code</a></li>
-			<li><a href="#pagetwo" data-icon="arrow-r" id = "payButton"data-transition="slide" >Pay</a></li>
-		</ul>
-	</div>
+	
 	<div class="ui-grid-a">
 		<div class="ui-block-a" id="">
 		<h3>TOTAL: Rs. <cartTotal id = "total_price"></cartTotal></h3>
@@ -69,9 +64,14 @@
 	
   </div>
 
-  <!-- <div data-role="footer" data-position="fixed" data-fullscreen="true" data-theme="b" id="foot">
-    <h1 id="footerText">FOOTER MESSAGE</h1>
-  </div> -->
+ <div data-role="footer" data-position="fixed" data-fullscreen="true" data-theme="b" id="foot">
+   <div data-role="navbar" class = "app"> 
+		<ul>
+			<li><a href="#"   data-icon="plus"  class="topcoat-button" id="scan" onclick = "begin()">Scan QR-Code</a></li>
+			<li><a href="#pagetwo" data-icon="arrow-r" id = "payButton"data-transition="slide" >Pay</a></li>
+		</ul>
+	</div>
+  </div>
 </div> 
 
 <!-- PAGE ONE ENDS -->
