@@ -2,7 +2,7 @@
 $(document).on("pageshow","#pagetwo",function(event,data)
 {
 	$("#billDetails").text('');
-	$('<div class="ui-block-a"><h3>PRODUCT NAME</h3></div><div class="ui-block-b"><h3>QUANTITY</h3></div><div class="ui-block-c"><h3>PRICE</h3></div><div class="ui-block-d"><h3>SUB-TOTAL</h3></div></div>').appendTo("#billDetails");
+	$('<div class="ui-block-a"><h3 style="text-align:left;">Product</h3></div><div class="ui-block-b"><h3 style="text-align:center;">Qty</h3></div><div class="ui-block-c"><h3 style="text-align:center;">Price</h3></div><div class="ui-block-d"><h3 style="text-align:right;">S.Total</h3></div></div>').appendTo("#billDetails");
 	
 	$("#grandTotalPagetwo").text(total_price.toFixed(2));
 	
@@ -17,7 +17,7 @@ $(document).on("pageshow","#pagetwo",function(event,data)
 
 function addBillToDisplay(index)
 {
-	var $bill=$('<div class="ui-block-a" id="bd">' + cart[index].pdName + '</div><div class="ui-block-b" id="bd">' + cart[index].qty + '</div><div class="ui-block-c" id="bd">' + cart[index].mallPrice.toFixed(2) + '</div><div class="ui-block-d" id="bd">' + cart[index].subTotal.toFixed(2) + '</div>').appendTo(document.getElementById('billDetails'));
+	var $bill=$('<div class="ui-block-a" id="bd" style="text-align:left;">' + cart[index].pdName + '</div><div class="ui-block-b" id="bd" style="text-align:center;">' + cart[index].qty + '</div><div class="ui-block-c" id="bd" style="text-align:center;">' + cart[index].mallPrice.toFixed(2) + '</div><div class="ui-block-d" id="bd" style="text-align:right;">' + cart[index].subTotal.toFixed(2) + '</div>').appendTo(document.getElementById('billDetails'));
 }
 
 
