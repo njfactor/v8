@@ -1,80 +1,3 @@
-
-	footerText{
-	font-size: 20px;
-	
-	}
-	#foot{
-	display:none;
-	
-	}
-	
-	.coll_head_butt{
-    margin-left : 50px ;
-    /*padding:1em !important;*/
-    border-style:none ;
-    box-shadow:none ;
-	float: right;
-}
-
-.deleteButton
-{
-	margin-right:0px;
-	float: right;
-}
-
-body
-{
-	font-size: 150%;
-}
-#head > div.ui-grid-a > div.ui-block-a > h3
-{
-	margin-left: 20%;
-}
-
-#head > div.ui-grid-a > div.ui-block-b > h3
-{
-	margin-left: 35%;
-}
-
-#scan
-{
-		font-size: 150%;
-}
-
-#payButton
-{
-		font-size: 150%;
-}
-
-.ui-btn-down-mytheme{background-color:red;
-}
-
-#btnExpand,#btnCollapse,#btnDelete
-{
-	width: 87%;
-	background-color: #1A1A1A;
-	font-size: 100%
-}
-#pageone > div.ui-content
-{
-	font-size:100%;
-}
-
-#pageone > div.ui-content
-{
-	padding:0px;
-}
-
-#wrapper
-{
-	padding: 0.5%;
-}
-
-.ui-collapsible-heading-toggle
-{
-	font-size: 100%;
-}
-
 .myInput
 {
 /* 	border-top: 1px solid #909090;
@@ -85,75 +8,91 @@ body
 }
 .myInput>.myInputButtonMinus,.myInput>.myInputButtonPlus
 {
-	margin: 0px;
-	font-size: 150%;
-	color: #717171;
-	width: 10%;
-	height: 10%;
+	font-size:130%;
+	font-weight:bold;
+	color: #eeeeee;
+	width: 20%;
+	height: 15%;
+	text-align:center;
+	padding:0px;
+	background-color: #444444;
+	border: 2px solid #000000;
+	
 }
 
 .myInput>.myInputBox
 {
 	border: 0px;
 	margin: 0px;
-	font-size: 100%;
+	font-size: 130%;
+	height:15%;
 	width: 30%;	
-	padding: 10px;
+	padding: 0;
+
+	text-align:center;
 }
 
-#head
+
+#pageone
 {
-	position: fixed;
-	background-color: #262626;
+	font-size: 40%;
+}
+#head > div.ui-grid-a
+{
+	text-align: center;
 }
 
 #head > div.ui-grid-b
 {
-	background-color: #292929;
+	background-color: #222222;
 }
 
-#viewbill > div
+#btnExpand,#btnCollapse,#btnDelete
 {
-	font-size: 100%;
+	width: 70%;
+	background-color: #000000;
+	font-size: 100%
 }
 
-#pagetwo
+#pageone > div.ui-content
 {
-		font-size: 100%;
+	padding: 0;
 }
 
-#finalSend
+#wrapper
 {
-	font-size: 100%;
+	padding: 2%;
 }
 
-#pagetwo > div.ui-footer.ui-bar-b.ui-footer-fixed.slideup > div > ul > li.ui-block-b > a
+#wrapper > .ui-collapsible>h1
+{font-size:80%;
+	background-color: #ffffff; 
+}
+#pagetwoHeader
 {
-	font-size: 100%;
-}
+font-size:80%;
 
-#pagetwo > div.ui-footer.ui-bar-b.ui-footer-fixed.slideup > div > ul > li.ui-block-c > a
-{
-	font-size: 100%;
 }
-
 #viewbill
 {
-	padding: 0.5%;
+	padding: 2%;
 }
-
-
-#pagetwo > div.ui-header.ui-bar-b.ui-header-fixed.slidedown > h2
+#grandTotal
 {
-	font-size: 200%;
-	margin: 0px;
-	vertical-align: middle;
-}
-
-#pagetwo > div.ui-header.ui-bar-b.ui-header-fixed.slidedown > h1
+font-size:120%;
+margin:0;
+text-align:center;}
+#totalDiscount
 {
-	font-size: 350%;
-	width: 100%;
-	margin: 0px;
-	vertical-align: middle;
-}
+
+margin:0;
+text-align:center;}
+#billDetails>h3
+{
+font-size:60%;}
+
+#billDetails > div:nth-child(4) > h3,#billDetails > div:nth-child(3) > h3,#billDetails > div:nth-child(2) > h3,#billDetails > div:nth-child(1) > h3
+{
+font-size:60%;}
+#bd{
+font-size:60%;}

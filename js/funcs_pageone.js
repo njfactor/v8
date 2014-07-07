@@ -11,6 +11,7 @@ function begin()
 	{
 		//take quantity input
 		var tempqt=takeQuantity();
+		//alert("final qty is"+tempqt);
 		if(tempqt!=-1){
 			temprod=new product(details[3],details[1],parseFloat(details[2]), parseInt(tempqt),parseFloat(details[2]));
 			add_object(temprod);
@@ -39,7 +40,7 @@ function changeQtyRescan(pos)
 }
 
 function changeQtyRescanDisplay(pos){
-		alert(cart[pos].qty);
+		//alert(cart[pos].qty);
 		$("#qt__" + cart[pos].pdId).val(cart[pos].qty+"");
 		$("#sTotal" + cart[pos].pdId).text(cart[pos].subTotal.toFixed(2));
 }
@@ -49,7 +50,7 @@ function changeQtyRescanDisplay(pos){
 function getDetails(tempprod)
 {
 /* Handle errors if product scanned is not in server database. To do this we can use a flag attribute in product.*/
-//    alert('in get details');//to be removed
+//    //alert('in get details');//to be removed
 	event.preventDefault();
 
 	var finurl= getQueryString(server_url,tempprod.pdId);
@@ -128,7 +129,7 @@ function remove_object(id)
 	disableEnablePayLink();}
 	else
 	{
-		alert("item not present in the cart");
+		//alert("item not present in the cart");
 	}
 }
 //end
@@ -179,7 +180,7 @@ function add_object(tempprod)
 
 function addToDisplay(tempprod)
 {
-	var $ele=$('<div data-role="collapsible" data-collapsed="false" id="'+tempprod.pdId+'"><h1>'+tempprod.pdName+'<a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-notext" onclick="remove_object(this.id)" id = "'+tempprod.pdId+'" style="float: right;"></a></h1><div class="ui-grid-b"><div class="ui-block-a"><span><img src="warning.png" height = "70px"/ id="img' + tempprod.pdId + '"></span></div><div class="ui-block-b"><span> <strong>Name:'+tempprod.pdName+'<br>Id:'+tempprod.pdId+' </strong><br><strong>Price: <span  id="mPrice' + tempprod.pdId + '">'+tempprod.mallPrice.toFixed(2)+'</span> </strong></span></div><div class="ui-block-c"><div class="ui-block-c"><div class="myInput" id = "myInput"><button class="myInputButtonMinus" id="minus__'+tempprod.pdId+'" onclick="minus_click(this.id)" data-icon="minus">-</button><input type="number" class="myInputBox" id="qt__'+tempprod.pdId+'" onkeyup="key_up(this.id)" onfocusout="focus_out(this.id)"  value="'+tempprod.qty+'" maxlength=""><button class="myInputButtonPlus" id="plus__'+tempprod.pdId+'" onclick="plus_click(this.id)" >+</button></div><div class = "ui-block-c"> <strong>Subtotal: <span id="sTotal' + tempprod.pdId + '">'+tempprod.subTotal.toFixed(2)+'</span></strong></div></div></div>').appendTo(document.getElementById('wrapper'));
+	var $ele=$('<div data-role="collapsible" data-collapsed="false" id="'+tempprod.pdId+'" data-theme="b"><h1>'+tempprod.pdName+'<a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-notext" onclick="remove_object(this.id)" id = "'+tempprod.pdId+'" style="float: right;background:#CC0033;border:0px;" data-theme = "b"></a></h1><div class="ui-grid-b"><div class="ui-block-a"><span><img src="warning.png" height = "70px"/ id="img' + tempprod.pdId + '"></span></div><div class="ui-block-b"><span> <strong>Name:'+tempprod.pdName+'<br>Id:'+tempprod.pdId+' </strong><br><strong>Price: <span  id="mPrice' + tempprod.pdId + '">'+tempprod.mallPrice.toFixed(2)+'</span> </strong></span></div><div class="ui-block-c"><div class="ui-block-c"><div class="myInput" id = "myInput"><button class="myInputButtonMinus" id="minus__'+tempprod.pdId+'" onclick="minus_click(this.id)" data-icon="minus">-</button><input type="number" class="myInputBox" id="qt__'+tempprod.pdId+'" onkeyup="key_up(this.id)" onfocusout="focus_out(this.id)"  value="'+tempprod.qty+'" maxlength=""><button class="myInputButtonPlus" id="plus__'+tempprod.pdId+'" onclick="plus_click(this.id)" >+</button></div><div class = "ui-block-c"> <strong>Subtotal: <span id="sTotal' + tempprod.pdId + '">'+tempprod.subTotal.toFixed(2)+'</span></strong></div></div></div>').appendTo(document.getElementById('wrapper'));
 	$ele.collapsible();
 }
 
@@ -261,9 +262,11 @@ function checkValidQR(tex){
 function takeQuantity()
 {
 	var qty = prompt('Enter the number of prducts you wish to buy: \n',"1");
+	//alert("you entered"+qty);
 	if(qty==null)
 	return -1;
 	qty=parseFloat(qty);
+	//alert("quantity after parsefloat"+qty);
 	while(isNaN(qty)||(qty%1!=0)||qty<0)
 		{
 		alert("Please enter valid quantity");
