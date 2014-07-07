@@ -40,12 +40,12 @@
 
 #scan
 {
-	font-size: 100%;	
+	font-size: 115%;	
 }
 
 #payButton
 {
-	font-size: 100%;	
+	font-size: 115%;	
 }
 
 
@@ -76,6 +76,11 @@
 	padding: 2%;
 }
 
+
+.imagesOnPageone
+{
+	height: 125px;
+}
 
 
 
@@ -134,3 +139,5 @@ font-size:80%;
 	font-size: 80%;
 
 }
+
+
