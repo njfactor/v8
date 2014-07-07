@@ -1,7 +1,9 @@
 function begin()
 {
-	server_url = details[4];
-	var x=checkIfPresent(details[1]);
+	if(obj.mallPrice==undefined)
+			obj.mallPrice=obj.mrp;
+	server_url = obj.url;
+	var x=checkIfPresent(obj.pdId);
 	if(x>=0)//present
 	{
       alert('This item is already present in your cart.');
@@ -13,7 +15,7 @@ function begin()
 		var tempqt=takeQuantity();
 		//alert("final qty is"+tempqt);
 		if(tempqt!=-1){
-			temprod=new product(details[3],details[1],parseFloat(details[2]), parseInt(tempqt),parseFloat(details[2]));
+			temprod=new product(obj.Name,obj.Id,parseFloat(obj.mallPrice), parseInt(tempqt),parseFloat(obj.mrp),obj.discount,obj.offer,obj.Description);
 			add_object(temprod);
 			getDetails(temprod);
 			}
@@ -182,6 +184,7 @@ function addToDisplay(tempprod)
 {
 	var $ele=$('<div data-role="collapsible" data-collapsed="false" id="'+tempprod.pdId+'" data-theme="b"><h1>'+tempprod.pdName+'<a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-notext" onclick="remove_object(this.id)" id = "'+tempprod.pdId+'" style="float: right;background:#CC0033;border:0px;" data-theme = "b"></a></h1><div class="ui-grid-b"><div class="ui-block-a"><span><img src="warning.png" class = "imagesOnPageone" id="img' + tempprod.pdId + '"  /></span></div><div class="ui-block-b" style="font-size: 130%;"><span> <strong>Name:'+tempprod.pdName+'<br>Id:'+tempprod.pdId+' </strong><br><strong>Price: <span  id="mPrice' + tempprod.pdId + '">'+tempprod.mallPrice.toFixed(2)+'</span> </strong></span></div><div class="ui-block-c"><div class="ui-block-c"><div class="myInput" id = "myInput"><button class="myInputButtonMinus" id="minus__'+tempprod.pdId+'" onclick="minus_click(this.id)" data-icon="minus">-</button><input type="number" class="myInputBox" id="qt__'+tempprod.pdId+'" onkeyup="key_up(this.id)" onfocusout="focus_out(this.id)"  value="'+tempprod.qty+'" maxlength=""><button class="myInputButtonPlus" id="plus__'+tempprod.pdId+'" onclick="plus_click(this.id)" >+</button></div><div class = "ui-block-c" style="font-size: 130%;"><p> <strong>Subtotal: <span id="sTotal' + tempprod.pdId + '">'+tempprod.subTotal.toFixed(2)+'</span></strong></p></div></div></div>').appendTo(document.getElementById('wrapper'));
 	$ele.collapsible();
+	 $("#wrapper").animate({scrollTop: $("#wrapper").get(0).scrollHeight}, 500);
 }
 
 
@@ -246,14 +249,21 @@ function splitter(info)
 function checkValidQR(tex){
 	if(tex=="")
 		return false;
-	splitter(tex);
-	if(details.length<3)
+	//splitter(tex);
+	try{
+		obj=jQuery.parseJSON(tex);
+		}
+	catch(err)
+	{
 		return false;
-	if(details[0]!=appUniqueKey)
+	}	
+	if(obj.Id==undefined || obj.mrp==undefined || obj.key==undefined)
 		return false;
-	if(details[1]=="")
+	if(obj.key!=appUniqueKey)
 		return false;
-	if(parseFloat(details[2])=="NaN")
+	if(obj.Id=="")
+		return false;
+	if(parseFloat(obj.mrp)=="NaN")
 		return false;
 	return true;
 }

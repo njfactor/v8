@@ -60,14 +60,13 @@ var app = {
 		{ 
 			if(checkValidQR(result.text))
 			{
-            alert("Name: " + details[3] + "\nPrice: " + details[2]);  
+			
+            alert("Name: " + obj.pName);  
             //prompt("Name: " + details[1] + "<br/>Price: " + details[2]);  
 			begin();
-			//getDetails();
             console.log("Scanner result: \n" +
                 "text: " + result.text + "\n");
             
-			//document.getElementById("rawCode").innerHTML = result.text
 			
             console.log(result);
             /*
