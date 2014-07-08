@@ -40,7 +40,9 @@ function begin()
 		//if(tempqt!=-1){
 			temprod=new product(obj.Name,obj.Id,parseFloat(obj.mallPrice), 1 ,parseFloat(obj.mrp),obj.discount,obj.offer,obj.Description);
 			if(cart_top==0)
-			{$("#wrapper").empty();}
+			{$("#wrapper").empty();
+			$("#wrapper").removeClass("app");
+			}
 			add_object(temprod);
 			
 			getDetails(temprod);
@@ -360,6 +362,7 @@ function wrapperToEmptyCartDispaly()
 	if(cart_top == 0)
 	{
 	$("#wrapper").empty();
-	$('<div class="app" style="width:100%;"><a href="#" class="topcoat-button" id="scanFromWrapper"><img src="emptyCart.jpg" style="width:100%;"/></a></div>').appendTo(document.getElementById('wrapper'));
+	$("#wrapper").addClass("app");
+	$('<a href="#" class="topcoat-button" id="scanFromWrapper"><img src="emptyCart.jpg" style="width:100%;"/></a>').appendTo(document.getElementById('wrapper'));
 	}
 }
