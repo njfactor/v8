@@ -23,34 +23,26 @@ function addBillToDisplay(index)
 
 function sendToBiller()
 {
-		event.preventDefault();
-		
-		cartForServer = new cartS(cartID,cart_top,cart,total_price);
-		var finurl=server_url;
-		dat= JSON.stringify(cartForServer);
+               event.preventDefault();
+               
+               cartForServer = new cartS(cartID,cart_top,cart,total_price);
+               var finurl=server_url;
+               dat= JSON.stringify(cartForServer);
 
-		$.ajax
-		({
-			type: "POST",
-			url: finurl,
-			//contentType : 'application/json',
-			data:dat,
-			success: function (data) 
-			{
-				alert('Thank you for shopping with Virtual Cart. '+data);
-			},
-			error: function ()
-			{
-				alert('Sorry! there seems to be a problem with our servers. Please try paying after some time.');
-			}	
-		});
-}
+               $.ajax
+               ({
+                       type: "POST",
+                       url: finurl,
+                       data:dat,
+                       headers: { "Accept":"application/json"},
 
-
-function cartS( cartID,  itemQuantity, prodarr, total)
-{
-	this.cartID=cartID;
-	this.itemQuantity=itemQuantity;
-	this.prodarr=prodarr;
-	this.total=total;
+                       success: function (data) 
+                       {
+                               alert('Thank you for shopping with Virtual Cart. '+data);
+                       },
+                       error: function ()
+                       {
+                               alert('Sorry! there seems to be a problem with our servers. Please try paying after some time.');
+                       }        
+               });
 }

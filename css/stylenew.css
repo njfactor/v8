@@ -39,10 +39,6 @@
 }
 
 
-#pageone
-{
-	font-size: 100%;
-}
 
 #scan
 {
@@ -50,11 +46,6 @@
 }
 
 #payButton
-{
-	font-size: 110%;	
-}
-
-#foot > div > ul > li.ui-block-b > a
 {
 	font-size: 110%;	
 }
@@ -103,10 +94,9 @@
 	padding-top: 4%;
 }
 
-
 .imagesOnPageone
 {
-	width: 95%;
+	width: 90%;
 }
 
 

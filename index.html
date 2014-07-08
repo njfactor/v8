@@ -34,47 +34,35 @@
 
 <!-- PAGE ONE -->
 <div data-role="page" id="pageone">
-  <div data-role="header" data-position="fixed" data-tap-toggle="false"  id="head" data-theme="b">
-	
-	
-	<div class="ui-grid-a">
-		<div class="ui-block-a" id="">
-		<h3>TOTAL: Rs. <cartTotal id = "total_price"></cartTotal></h3>
-		<span / >
+	<div data-role="header" data-position="fixed" data-tap-toggle="false"  id="head" data-theme="b">
+		<div class="ui-grid-a">
+			<div class="ui-block-a" id="">
+			<h3>TOTAL: Rs. <cartTotal id = "total_price"></cartTotal></h3>
+				</div>
+			<div class="ui-block-b" id="">
+				<h3>ITEMS: <cartItems id = "total_items"></cartItems></h3>
+			</div>
 		</div>
-		<div class="ui-block-b" id="">
-		<h3>ITEMS: <cartItems id = "total_items"></cartItems></h3>
-		<span />
+	
+		<div class="ui-grid-b">
+			<div class="ui-block-a"><a id="btnExpand"  class="ui-btn ui-corner-all collapseExpand">Expand All</a></div>
+			<div class="ui-block-b"><a id="btnCollapse" class="ui-btn ui-corner-all collapseExpand">Collapse All</a></div>
+			<div class="ui-block-c"><a id="btnDelete" class="ui-btn ui-corner-all collapseExpand" onClick="deleteAll()">Delete All</a></div>
 		</div>
 	</div>
 	
-	<div class="ui-grid-b">
-				  <div class="ui-block-a"><a id="btnExpand"  class="ui-btn ui-corner-all collapseExpand">Expand All</a>
-				  </div>
-				  <div class="ui-block-b"><a id="btnCollapse" class="ui-btn ui-corner-all collapseExpand">Collapse All</a>
-				  </div>
-				  <div class="ui-block-c"><a id="btnDelete" class="ui-btn ui-corner-all collapseExpand" onClick="deleteAll()">Delete All</a>
-				  </div>
-		</div>
-</div>
-   <div data-role="main" class="ui-content">
-		
-		
+	<div data-role="main" class="ui-content">
 		<div id="wrapper" data-role="content"></div>
-	
-  </div>
+	</div>
 
- <div data-role="footer" data-position="fixed" data-theme="b" id="foot">
-   <div data-role="navbar" data-theme="b" class = "app"> 
+	<div data-role="footer" data-position="fixed" data-theme="b" id="foot">
+		<div data-role="navbar" data-theme="b" class = "app"> 
 		<ul>
 			<li><a href="#" data-icon="plus" class="topcoat-button" id="scan">Scan QR-Code</a></li>
-			<li><a href="#" onclick="navigator.app.exitApp()" data-icon="home">Exit</a></li>
 			<li><a href="#pagetwo" data-icon="arrow-r" id = "payButton">Pay</a></li>
 		</ul>
+		</div>
 	</div>
-  </div>
-  
-
 </div> 
 
 <!-- PAGE ONE ENDS -->
