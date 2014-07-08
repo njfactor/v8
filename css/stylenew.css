@@ -54,6 +54,11 @@
 	font-size: 110%;	
 }
 
+#foot > div > ul > li.ui-block-b > a
+{
+	font-size: 110%;	
+}
+
 #head,#pagetwoHeader
 {
 	height:20%;
@@ -62,6 +67,7 @@
 {
 	margin-top: 4%;
 	text-align: center;
+	font-size: 130%;
 	height: 60%;
 }
 
@@ -92,14 +98,15 @@
 
 #wrapper
 {
-	padding: 2%;
-	padding-top:0;
+	padding-left: 2%;
+	padding-right: 2%;
+	padding-top: 4%;
 }
 
 
 .imagesOnPageone
 {
-	height: 70px;
+	width: 95%;
 }
 
 
@@ -124,7 +131,7 @@
 #grandTotal
 {
 height: 60;
-font-size:150%;
+font-size:160%;
 margin:0;
 margin-top: 4%;
 text-align:center;

@@ -68,7 +68,8 @@
    <div data-role="navbar" data-theme="b" class = "app"> 
 		<ul>
 			<li><a href="#" data-icon="plus" class="topcoat-button" id="scan">Scan QR-Code</a></li>
-			<li><a href="#pagetwo" data-icon="arrow-r" id = "payButton"data-transition="slide" >Pay</a></li>
+			<li><a href="#" onclick="navigator.app.exitApp()" data-icon="home">Exit</a></li>
+			<li><a href="#pagetwo" data-icon="arrow-r" id = "payButton">Pay</a></li>
 		</ul>
 	</div>
   </div>
@@ -121,9 +122,9 @@ var server_url;
 	<div data-role="footer" data-position="fixed" data-theme="b">
 		<div data-role="navbar" data-theme="b">
 			<ul>
-				<li><a href="#" id="finalSend" data-icon="arrow-r" onclick = "sendToBiller()">SEND</a></li>
-				<li><a href="#pageone" data-transition="slide" data-direction="reverse" data-icon="edit">EDIT</a></li>
-				<li><a href="#" onclick="navigator.app.exitApp()" data-icon="home">EXIT</a></li>
+				<li><a href="#" id="finalSend" data-icon="arrow-r" onclick = "sendToBiller()">Check Out</a></li>
+				<li><a href="#pageone" data-transition="slide" data-icon="edit">Edit</a></li>
+				<li><a href="#" onclick="navigator.app.exitApp()" data-icon="home">Exit</a></li>
 			</ul>
 		</div>
 	</div>

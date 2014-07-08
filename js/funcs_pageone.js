@@ -1,3 +1,23 @@
+document.addEventListener("deviceready", onDeviceReady, false);
+
+function onDeviceReady() {
+   document.addEventListener("backbutton", onBackKeyDown, false); //Listen to the User clicking on the back button
+}
+
+function onBackKeyDown(e) {
+   e.preventDefault();
+   navigator.notification.confirm("Are you sure you want to exit ?", onConfirm, "Confirmation", "Yes,No"); 
+   // Prompt the user with the choice
+}
+
+function onConfirm(button) {
+   if(button==2){//If User selected No, then we just do nothing
+       return;
+   }else{
+       navigator.app.exitApp();// Otherwise we quit the app.
+   }
+}
+
 function begin()
 {
 	if(obj.mallPrice==undefined)
@@ -47,6 +67,7 @@ function changeQtyRescanDisplay(pos){
 		//alert(cart[pos].qty);
 		$("#qt__" + cart[pos].pdId).val(cart[pos].qty+"");
 		$("#sTotal" + cart[pos].pdId).text(cart[pos].subTotal.toFixed(2));
+		$('html,body').animate({scrollTop: $("#"+cart[pos].pdId).offset().top}, 500);
 }
 
 
@@ -83,21 +104,24 @@ function getDetails(tempprod)
 	}
 	{
 		$("#name"+ cart[i].pdId).text(cart[i].pdName);
-		$("#name_"+ cart[i].pdId).text(cart[i].pdName);
+		$("#id_"+ cart[i].pdId).text("ID: "+cart[i].pdId);
 		$("#img" + cart[i].pdId).attr("src",cart[i].imgURL);
 		$("#qt__" + cart[i].pdId).attr("value",cart[i].qty);
 		$("#sTotal" + cart[i].pdId).text(cart[i].subTotal.toFixed(2));
-		$("#mPrice" + cart[i].pdId).text(cart[i].mallPrice.toFixed(2));
+		
+		$("#mrp" + cart[i].pdId).css({"text-decoration":"line-through"});
+		$("#mrp" + cart[i].pdId).css({"font-size":"70%"});
+		$("#mrp" + cart[i].pdId).css({"color":"#999999"});
+		$("#mPrice" + cart[i].pdId).text("Rs. "+cart[i].mallPrice.toFixed(2));
+		
 		$("#offer" + cart[i].pdId).text(cart[i].offer);
 	}	
-		updateAllConstantsDisplay();
-		
+		updateAllConstantsDisplay();	
 	}
 	}
 		catch(err)
 	{
-					
-	
+
 	}
 	});
 	
@@ -202,7 +226,7 @@ function add_object(tempprod)
 
 function addToDisplay(tempprod)
 {
-var $ele=$('<div data-role="collapsible" data-collapsed="false" id="'+tempprod.pdId+'" style="font-size: 130%;"><h3><div style="width: 100%;"><div id = "name'+tempprod.pdId+'" style="font-size: 150%;width: 85%;float:left;overflow: hidden;">'+tempprod.pdName+'</div><div style="width: 15%;float:right;"><a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-notext" onclick="remove_object(this.id)" id = "'+tempprod.pdId+'" style="float:right; border:0px;"></a></div></div></h3><div class="ui-grid-b"><div class="ui-block-a"><img src="" class = "imagesOnPageone" id="img' + tempprod.pdId + '" /></div><div class="ui-block-b"><span><span id = "name_'+tempprod.pdId+'">ID:'+tempprod.pdId+'</span><br/><br/><span>Price: Rs. <span  id="mPrice' + tempprod.pdId + '">'+tempprod.mallPrice.toFixed(2)+'</span></span></span></div><div class="ui-block-c"><div class="myInput" id = "myInput"><button class="myInputButtonMinus" id="minus__'+tempprod.pdId+'" onclick="minus_click(this.id)" data-icon="minus">-</button><input type="number" class="myInputBox" id="qt__'+tempprod.pdId+'" onkeyup="key_up(this.id)" onfocusout="focus_out(this.id)"  value="'+tempprod.qty+'" maxlength=""><button class="myInputButtonPlus" id="plus__'+tempprod.pdId+'" onclick="plus_click(this.id)">+</button></div><div style="float: right; height: 70%;"><p style="text-align: right;"><strong>S.Total<br/>Rs. <span id="sTotal' + tempprod.pdId + '">'+tempprod.subTotal.toFixed(2)+'</span></strong></p></div></div></div><div id = "offer'+tempprod.pdId+'" style = "text-shadow: 0 0 15px #000000;"></div></div>').appendTo(document.getElementById('wrapper'));
+var $ele=$('<div data-role="collapsible" data-collapsed="false" id="'+tempprod.pdId+'" style="font-size: 130%;"><h3><div style="width: 100%;"><div id = "name'+tempprod.pdId+'" style="font-size: 150%;width: 85%;float:left;overflow: hidden;">'+tempprod.pdName+'</div><div style="width: 15%;float:right;"><a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-notext" onclick="remove_object(this.id)" id = "'+tempprod.pdId+'" style="float:right; border:0px;"></a></div></div></h3><div class="ui-grid-b" style="width: 100%;height: 100%;"><div class="ui-block-a"  style="width: 25%;"><img src="" class = "imagesOnPageone" id="img' + tempprod.pdId + '" /></div><div class="ui-block-b" style="width: 45%;"><div style="width:100%;"><div id = "id_'+tempprod.pdId+'" style="float:left;width:100%;">ID:'+tempprod.pdId+'</div><br/><br/><div style="width:100%;font-size:100%;" id="mrp' + tempprod.pdId + '">Rs. '+tempprod.mallPrice.toFixed(2)+'</div><div style="width:100%;" id="mPrice'+tempprod.pdId+'"></div></div></div><div class="ui-block-c" style="width: 30%;"><div class="myInput" id = "myInput"><button class="myInputButtonMinus" id="minus__'+tempprod.pdId+'" onclick="minus_click(this.id)" data-icon="minus">-</button><input type="number" class="myInputBox" id="qt__'+tempprod.pdId+'" onkeyup="key_up(this.id)" onfocusout="focus_out(this.id)"  value="'+tempprod.qty+'" maxlength=""><button class="myInputButtonPlus" id="plus__'+tempprod.pdId+'" onclick="plus_click(this.id)">+</button></div><div style="float: right; height: 70%;"><p style="text-align: right;"><strong><br/><br/>Rs. <span id="sTotal' + tempprod.pdId + '">'+tempprod.subTotal.toFixed(2)+'</span></strong></p></div></div></div><div id = "offer'+tempprod.pdId+'" style = "text-shadow: 0 0 15px #000000;"></div></div>').appendTo(document.getElementById('wrapper'));
 $ele.collapsible();
  $('html,body').animate({scrollTop: $("#"+tempprod.pdId).offset().top}, 500);
 }
