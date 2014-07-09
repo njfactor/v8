@@ -234,7 +234,7 @@ function add_object(tempprod)
 
 function addToDisplay(tempprod)
 {
-var $ele=$('<div data-role="collapsible" data-collapsed="false" id="'+tempprod.pdId+'" style="font-size: 130%;"><h3><div style="width: 100%;"><div id = "name'+tempprod.pdId+'" style="font-size: 150%;width: 85%;float:left;overflow: hidden;">'+tempprod.pdName+'</div><div style="width: 15%;float:right;"><a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-notext" onclick="remove_object(this.id)" id = "'+tempprod.pdId+'" style="float:right; border:0px;"></a></div></div></h3><div class="ui-grid-b" style="width: 100%;padding:1%;"><div class="ui-block-a"  style="width: 25%;"><img src="" class = "imagesOnPageone" id="img' + tempprod.pdId + '" /></div><div class="ui-block-b" style="width: 45%;"><div style="width:100%;"><div id = "id_'+tempprod.pdId+'" style="float:left;width:100%;">ID:'+tempprod.pdId+'</div><br/><br/><br/><br/><div style="width:100%;font-size:100%;" id="mrp' + tempprod.pdId + '">Rs. '+tempprod.mallPrice.toFixed(2)+'</div><div style="width:100%;" id="mPrice'+tempprod.pdId+'"></div></div></div><div class="ui-block-c" style="width: 30%;"><div class="myInput" id = "myInput"><button class="myInputButtonMinus" id="minus__'+tempprod.pdId+'" onclick="minus_click(this.id)" data-icon="minus">-</button><input type="number" class="myInputBox" id="qt__'+tempprod.pdId+'" onkeyup="key_up(this.id)" onfocusout="focus_out(this.id)"  value="'+tempprod.qty+'" maxlength=""><button class="myInputButtonPlus" id="plus__'+tempprod.pdId+'" onclick="plus_click(this.id)">+</button></div><div style="float: right; height: 70%;"><p style="text-align: right;"><strong><br/><br/>Rs. <span id="sTotal' + tempprod.pdId + '">'+tempprod.subTotal.toFixed(2)+'</span></strong></p></div></div></div><div id = "offer'+tempprod.pdId+'" style = "text-shadow: 0 0 15px #000000;"></div></div>').appendTo(document.getElementById('wrapper'));
+var $ele=$('<div data-role="collapsible" data-collapsed="false" id="'+tempprod.pdId+'" style="font-size: 130%;"><h3><div style="width: 100%;"><div id = "name'+tempprod.pdId+'" style="font-size: 150%;width: 85%;float:left;overflow: hidden;">'+tempprod.pdName+'</div><div style="width: 15%;float:right;"><a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-notext" onclick="remove_object(this.id)" id = "'+tempprod.pdId+'" style="float:right; border:0px;"></a></div></div></h3><div class="ui-grid-b" style="width: 100%;padding:1%;"><div class="ui-block-a"  style="width: 25%;"><img src="photo_not_available.png" class = "imagesOnPageone" id="img' + tempprod.pdId + '" /></div><div class="ui-block-b" style="width: 45%;"><div style="width:100%;"><div id = "id_'+tempprod.pdId+'" style="float:left;width:100%;">ID:'+tempprod.pdId+'</div><br/><br/><br/><br/><div style="width:100%;font-size:100%;" id="mrp' + tempprod.pdId + '">Rs. '+tempprod.mallPrice.toFixed(2)+'</div><div style="width:100%;" id="mPrice'+tempprod.pdId+'"></div></div></div><div class="ui-block-c" style="width: 30%;"><div class="myInput" id = "myInput"><button class="myInputButtonMinus" id="minus__'+tempprod.pdId+'" onclick="minus_click(this.id)" data-icon="minus">-</button><input type="number" class="myInputBox" id="qt__'+tempprod.pdId+'" onkeyup="key_up(this.id)" onfocusout="focus_out(this.id)"  value="'+tempprod.qty+'" maxlength=""><button class="myInputButtonPlus" id="plus__'+tempprod.pdId+'" onclick="plus_click(this.id)">+</button></div><div style="float: right; height: 70%;"><p style="text-align: right;"><strong><br/><br/>Rs. <span id="sTotal' + tempprod.pdId + '">'+tempprod.subTotal.toFixed(2)+'</span></strong></p></div></div></div><div id = "offer'+tempprod.pdId+'" style = "text-shadow: 0 0 15px #000000;"></div></div>').appendTo(document.getElementById('wrapper'));
 $ele.collapsible();
  $('html,body').animate({scrollTop: $("#"+tempprod.pdId).offset().top}, 500);
 }
@@ -352,9 +352,6 @@ function exitApp()
 {
 	if(confirm("Do you really want to delete everything."))
 		navigator.app.exitApp();
-	else
-		return;
-
 }
 
 function wrapperToEmptyCartDispaly()
@@ -362,7 +359,20 @@ function wrapperToEmptyCartDispaly()
 	if(cart_top == 0)
 	{
 	$("#wrapper").empty();
-	$("#wrapper").addClass("app");
-	$('<a href="#" class="topcoat-button" id="scanFromWrapper"><img src="emptyCart.jpg" style="width:100%;"/></a>').appendTo(document.getElementById('wrapper'));
+	//$("#wrapper").addClass("app");
+	$('<a href="#" id="scan"><img src="emptyCart.jpg" style="width:100%;"/></a>').appendTo(document.getElementById('wrapper'));
+/* 	var wrapper = document.getElementById('wrapper');
+	var atemp = document.createElement('a');
+	var imgtemp = document.createElement('img');
+	
+	imgtemp.setAttribute("src",'emptyCart.jpg');
+	
+	atemp.appendChild(imgtemp);
+	
+	atemp.id = "scan";
+	atemp.setAttribute("href",'#');
+	
+	wrapper.appendChild(atemp); */
+	app.initialize();
 	}
 }
