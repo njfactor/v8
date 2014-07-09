@@ -380,7 +380,7 @@ function wrapperToEmptyCartDispaly()
 	{
 	$("#wrapper").empty();
 	//$("#wrapper").addClass("app");
-	$('<a href="#" id="scanFromWrapper"><img src="emptyCart.jpg" onClick="startScanner()" style="width:100%;"/></a>').appendTo(document.getElementById('wrapper'));
+	$('<a href="#" id="scanFromWrapper"><img src="emptyCart.png" onClick="startScanner()" style="width:100%;"/></a>').appendTo(document.getElementById('wrapper'));
 /* 	var wrapper = document.getElementById('wrapper');
 	var atemp = document.createElement('a');
 	var imgtemp = document.createElement('img');
