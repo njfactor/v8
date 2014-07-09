@@ -19,7 +19,8 @@ function onConfirm(button) {
 }
 
 function begin()
-{
+{	
+	//document.getElementById('scan').
 	
 	if(obj.mallPrice==undefined)
 			obj.mallPrice=obj.mrp;
@@ -271,17 +272,20 @@ function changeQuantity(qtId,qtValue)
 
 function deleteAll()
 {
-if(confirm("Do you really want to delete everything."))
-{
-	cart=[];//empty the cart array
+	if(cart_top != 0)
+	{
+	if(confirm("Do you really want to delete everything."))
+	{
+		cart=[];//empty the cart array
 
-	$("#wrapper").text("");//empty the display
-	total_price=0;
-	cart_top=0;
+		$("#wrapper").text("");//empty the display
+		total_price=0;
+		cart_top=0;
 
-	updateAllConstantsDisplay();
-	disableEnablePayLink();
-	wrapperToEmptyCartDispaly();
+		updateAllConstantsDisplay();
+		disableEnablePayLink();
+		wrapperToEmptyCartDispaly();
+	}
 }
 else
 	return;
@@ -289,9 +293,11 @@ else
 
 function firstFunction()
 {
+//alert('firstFunction');
 	cartID = parseInt(Math.random() * 1000000);
 	disableEnablePayLink();
 	wrapperToEmptyCartDispaly();
+
 	updateAllConstantsDisplay();
 }
 
@@ -350,7 +356,7 @@ function takeQuantity()
 
 function exitApp()
 {
-	if(confirm("Do you really want to delete everything."))
+	if(confirm("Do you really want to exit. All products will be deleted."))
 		navigator.app.exitApp();
 }
 
@@ -360,7 +366,7 @@ function wrapperToEmptyCartDispaly()
 	{
 	$("#wrapper").empty();
 	//$("#wrapper").addClass("app");
-	$('<a href="#" id="scan"><img src="emptyCart.jpg" style="width:100%;"/></a>').appendTo(document.getElementById('wrapper'));
+	$('<a href="#" id="scanFromWrapper"><img src="emptyCart.jpg" style="width:100%;"/></a>').appendTo(document.getElementById('wrapper'));
 /* 	var wrapper = document.getElementById('wrapper');
 	var atemp = document.createElement('a');
 	var imgtemp = document.createElement('img');

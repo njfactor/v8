@@ -50,10 +50,11 @@
 	font-size: 110%;	
 }
 
-/* #head,#pagetwoHeader
+ #head,#pagetwoHeader,#foot,#footTwo
 {
-	height:20%;
-} */
+	position:fixed;
+	/* height:20%; */
+} 
 #head > div.ui-grid-a
 {
 	/* margin-top: 4%; */

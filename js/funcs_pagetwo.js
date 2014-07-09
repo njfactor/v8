@@ -29,7 +29,8 @@ function sendToBiller()
                var finurl=server_url;
                dat= JSON.stringify(cartForServer);
 
-               $.ajax
+	   
+                $.ajax
                ({
                        type: "POST",
                        url: finurl,
@@ -44,5 +45,13 @@ function sendToBiller()
                        {
                                alert('Sorry! there seems to be a problem with our servers. Please try paying after some time.');
                        }        
-               });
+               }); 
+}
+
+function cartS( cartID,  itemQuantity, prodarr, total)
+{
+	this.cartID=cartID;
+	this.itemQuantity=itemQuantity;
+	this.prodarr=prodarr;
+	this.total=total;
 }
