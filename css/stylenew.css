@@ -38,7 +38,16 @@
 /* 	float: center; */
 }
 
+#foot,#pageTwoFooter{
 
+	position:fixed;
+
+}
+
+#head,#pagetwoHeader
+{
+	position:fixed;
+}
 
 #scan
 {
@@ -50,11 +59,10 @@
 	font-size: 110%;	
 }
 
- #head,#pagetwoHeader,#foot,#footTwo
+/* #head,#pagetwoHeader
 {
-	position:fixed;
-	/* height:20%; */
-} 
+	height:20%;
+} */
 #head > div.ui-grid-a
 {
 	/* margin-top: 4%; */
@@ -92,7 +100,8 @@
 {/* 	width:100%; */
 	padding-left: 2%;
 	padding-right: 2%;
-	padding-top: 4%;
+	padding-top: 0;
+	margin-top:3%;
 }
 
 .imagesOnPageone
@@ -123,15 +132,15 @@
 {
 /* height: 60; */
 font-size:160%;
-/* margin:0;
-margin-top: 4%; */
+margin:0;
+
 text-align:center;
 }
 
 #totalDiscount
 {
-/* height: 40%;
-margin:0; */
+height: 40%;
+margin:0;
 text-align:center;
 font-size:120%;
 }

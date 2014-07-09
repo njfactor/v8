@@ -8,13 +8,18 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 
 
-function onDeviceReady() {
+function onDeviceReady() {alert('device is ready');
    document.addEventListener("backbutton", onBackKeyDown, false); //Listen to the User clicking on the back button
 }
 
 function onBackKeyDown(e) {
+alert('back is down');
    e.preventDefault();
-   navigator.notification.confirm("Are you sure you want to exit ?", onConfirm, "Confirmation", "Yes,No"); 
+   if(confirm("Are you sure?\nAll your product will lost."))
+	{
+		navigator.app.exitApp();
+	}
+   //navigator.notification.confirm("Are you sure you want to exit ?", onConfirm, "Confirmation", "Yes,No"); 
    // Prompt the user with the choice
 }
 
@@ -123,11 +128,13 @@ function getDetails(tempprod)
 		$("#img" + cart[i].pdId).attr("src",cart[i].imgURL);
 		$("#qt__" + cart[i].pdId).attr("value",cart[i].qty);
 		$("#sTotal" + cart[i].pdId).text(cart[i].subTotal.toFixed(2));
-		
+		if(cart[i].discount != 0)
+		{
 		$("#mrp" + cart[i].pdId).css({"text-decoration":"line-through"});
 		$("#mrp" + cart[i].pdId).css({"font-size":"70%"});
 		$("#mrp" + cart[i].pdId).css({"color":"#999999"});
 		$("#mPrice" + cart[i].pdId).text("Rs. "+cart[i].mallPrice.toFixed(2));
+		}
 		
 		$("#offer" + cart[i].pdId).text(cart[i].offer);
 	}	
@@ -318,8 +325,7 @@ function splitter(info)
 //end
 
 function checkValidQR(tex){
-	if(tex=="")
-		return false;
+	
 	//splitter(tex);
 	try{
 		obj=jQuery.parseJSON(tex);
