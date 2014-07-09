@@ -50,7 +50,7 @@
 	<div data-role="footer" data-position="fixed" data-theme="b" id="foot">
 		<div data-role="navbar" data-theme="b" class = "app"> 
 		<ul>
-			<li><a href="#" data-icon="plus" class="topcoat-button" id= "scan">Scan QR-Code</a></li>
+			<li><a href="#" data-icon="plus" class="topcoat-button" id= "scan" onclick = "startScanner()">Scan QR-Code</a></li>
 			<li><a href="#pagetwo" data-icon="arrow-r" id = "payButton">Pay</a></li>
 		</ul>
 		</div>
@@ -66,7 +66,7 @@
 	<script type="text/javascript">app.initialize();</script>
 
 <script>
-//var obj={key:"VC",Id:"1171",mrp:"99",Name:"p2",url:"http://172.17.10.26/VC_Server/Default.aspx"};
+// obj={key:"VC",Id:"1171",mrp:"99",Name:"p2",url:"http://172.17.10.26/VC_Server/Default.aspx"};
 var obj;
 var cart=[];
 var temprod;

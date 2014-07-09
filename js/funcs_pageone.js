@@ -8,12 +8,12 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 
 
-function onDeviceReady() {alert('device is ready');
+function onDeviceReady() {//alert('device is ready');
    document.addEventListener("backbutton", onBackKeyDown, false); //Listen to the User clicking on the back button
 }
 
 function onBackKeyDown(e) {
-alert('back is down');
+//alert('back is down');
    e.preventDefault();
    if(confirm("Are you sure?\nAll your product will lost."))
 	{
@@ -325,7 +325,7 @@ function splitter(info)
 //end
 
 function checkValidQR(tex){
-	
+
 	//splitter(tex);
 	try{
 		obj=jQuery.parseJSON(tex);
@@ -380,7 +380,7 @@ function wrapperToEmptyCartDispaly()
 	{
 	$("#wrapper").empty();
 	//$("#wrapper").addClass("app");
-	$('<a href="#" id="scanFromWrapper"><img src="emptyCart.png" onClick="startScanner()" style="width:100%;"/></a>').appendTo(document.getElementById('wrapper'));
+	$('<a href="#" id="scanFromWrapper"><img src="emptyCart.png" onClick="startScanner()" style="width:99%;"/></a>').appendTo(document.getElementById('wrapper'));
 /* 	var wrapper = document.getElementById('wrapper');
 	var atemp = document.createElement('a');
 	var imgtemp = document.createElement('img');
