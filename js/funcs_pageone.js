@@ -1,4 +1,12 @@
+function startScanner(){
+	app.scan();
+}
+
+
 document.addEventListener("deviceready", onDeviceReady, false);
+
+
+
 
 function onDeviceReady() {
    document.addEventListener("backbutton", onBackKeyDown, false); //Listen to the User clicking on the back button
@@ -366,7 +374,7 @@ function wrapperToEmptyCartDispaly()
 	{
 	$("#wrapper").empty();
 	//$("#wrapper").addClass("app");
-	$('<a href="#" id="scanFromWrapper"><img src="emptyCart.jpg" style="width:100%;"/></a>').appendTo(document.getElementById('wrapper'));
+	$('<a href="#" id="scanFromWrapper"><img src="emptyCart.jpg" onClick="startScanner()" style="width:100%;"/></a>').appendTo(document.getElementById('wrapper'));
 /* 	var wrapper = document.getElementById('wrapper');
 	var atemp = document.createElement('a');
 	var imgtemp = document.createElement('img');
@@ -379,6 +387,6 @@ function wrapperToEmptyCartDispaly()
 	atemp.setAttribute("href",'#');
 	
 	wrapper.appendChild(atemp); */
-	app.initialize();
+	//app.initialize();
 	}
 }
