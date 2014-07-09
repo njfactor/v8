@@ -9,7 +9,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 
 function onDeviceReady() {//alert('device is ready');
-   $("#pageone").addEventListener("backbutton", onBackKeyDown, false); //Listen to the User clicking on the back button
+   document.addEventListener("backbutton", onBackKeyDown, false); //Listen to the User clicking on the back button
 }
 
 function onBackKeyDown(e) {
