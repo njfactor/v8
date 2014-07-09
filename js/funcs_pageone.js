@@ -9,7 +9,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 
 function onDeviceReady() {//alert('device is ready');
-   document.addEventListener("backbutton", onBackKeyDown, false); //Listen to the User clicking on the back button
+   $("#pageone").addEventListener("backbutton", onBackKeyDown, false); //Listen to the User clicking on the back button
 }
 
 function onBackKeyDown(e) {
@@ -287,8 +287,7 @@ function changeQuantity(qtId,qtValue)
 
 function deleteAll()
 {
-	if(cart_top != 0)
-	{
+	if(cart_top != 0){	
 	if(confirm("Do you really want to delete everything."))
 	{
 		cart=[];//empty the cart array
@@ -301,9 +300,8 @@ function deleteAll()
 		disableEnablePayLink();
 		wrapperToEmptyCartDispaly();
 	}
-}
-else
-	return;
+		}
+	
 }
 
 function firstFunction()

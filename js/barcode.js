@@ -59,7 +59,10 @@ var app = {
 
         scanner.scan( function (result) 
 		{ 
-			if( result.text != "" && checkValidQR(result.text))
+			if(result.text=="")
+				return ;
+		
+			if( checkValidQR(result.text))
 			{
 			
             //alert("Name: " + obj.Name);  

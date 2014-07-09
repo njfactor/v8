@@ -39,7 +39,7 @@
 		<div class="ui-grid-b">
 			<div class="ui-block-a"><a id="btnExpand"  class="ui-btn ui-corner-all collapseExpand">Expand All</a></div>
 			<div class="ui-block-b"><a id="btnCollapse" class="ui-btn ui-corner-all collapseExpand">Collapse All</a></div>
-			<div class="ui-block-c"><a id="btnDelete" class="ui-btn ui-corner-all collapseExpand" onClick="deleteAll()">Delete All</a></div>
+			<div class="ui-block-c"><a id="btnDelete" class="ui-btn ui-corner-all " onClick="deleteAll()">Delete All</a></div>
 		</div>
 	</div>
 	
@@ -50,7 +50,7 @@
 	<div data-role="footer" data-position="fixed" data-theme="b" id="foot">
 		<div data-role="navbar" data-theme="b" class = "app"> 
 		<ul>
-			<li><a href="#" data-icon="plus" class="topcoat-button" id= "scan" onclick = "startScanner();begin();">Scan QR-Code</a></li>
+			<li><a href="#" data-icon="plus" class="topcoat-button" id= "scan" onclick ="begin()">Scan QR-Code</a></li>
 			<li><a href="#pagetwo" data-icon="arrow-r" id = "payButton">Pay</a></li>
 		</ul>
 		</div>
@@ -115,7 +115,7 @@ var server_url;
 <script>
 	$(document).on("pagecreate", "#pageone", function () {
 
-    $(document).on("click", ".collapseExpand", function(){
+    $(".collapseExpand").on("click", function(){
         var collapseAll = this.id == "btnCollapse";
         $('#wrapper [data-role="collapsible"]').collapsible("option", "collapsed", collapseAll);
     });
